@@ -1,7 +1,22 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql');
+const cors = require('cors');
 
-var users = [
+const db = mysql.createConnection({
+	user: "root",
+	host: "localhost",
+	password: "password",
+	database: "App_Voiture"
+});
+
+connection.connect(function(err){
+(err)? console.log(err+'+++++++++++++++//////////'): console.log('connection********');
+});
+
+require('./routes/html-routes')(app, connection);
+
+const users = [
 { email : 'abc@gmail.com', password : 'password'}
 ];
 /* GET home page. */
